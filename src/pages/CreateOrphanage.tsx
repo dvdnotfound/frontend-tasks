@@ -86,7 +86,7 @@ export default function OrphanageMap() {
 
             <div className="input-block">
               <label htmlFor="opening_hours">Horário de funcionamento</label>
-              <input id="opening_hours" />
+              <input id="opening_hours" value={opening_hours} onChange={event => setOpeningHours(event.target.value)}/>
             </div>
 
             <div className="input-block">
