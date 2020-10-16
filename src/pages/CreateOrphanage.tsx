@@ -13,7 +13,10 @@ import '../styles/pages/create-orphanage.css';
 
 export default function OrphanageMap() {
 
-  const [position, setPosition] = useState({ latitude: 0, longitude: 0})
+  const [position, setPosition] = useState({ latitude: 0, longitude: 0});
+
+  const [name, setName] = useState('');
+
   function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng;
     
@@ -48,7 +51,7 @@ export default function OrphanageMap() {
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
-              <input id="name" />
+              <input id="name" value={name} onChange={event => setName(event.target.value)}/>
             </div>
 
             <div className="input-block">
