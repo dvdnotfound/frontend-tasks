@@ -11,7 +11,7 @@ import '../styles/pages/create-orphanage.css';
 
 
 
-export default function CreateOrphanage() {
+export default function OrphanageMap() {
 
   const [position, setPosition] = useState({ latitude: 0, longitude: 0})
   function handleMapClick(event: LeafletMouseEvent) {
