@@ -81,7 +81,7 @@ export default function OrphanageMap() {
 
             <div className="input-block">
               <label htmlFor="instructions">Instruções</label>
-              <textarea id="instructions" />
+              <textarea id="instructions" value={instructions} onChange={event => setInstructions(event.target.value)}/>
             </div>
 
             <div className="input-block">
