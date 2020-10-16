@@ -16,6 +16,10 @@ export default function OrphanageMap() {
   const [position, setPosition] = useState({ latitude: 0, longitude: 0});
 
   const [name, setName] = useState('');
+  const [about, setAbout] = useState('');
+  const [instructions, setInstructions] = useState('');
+  const [opening_hours, setOpeningHours] = useState('');
+
 
   function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng;
@@ -56,7 +60,7 @@ export default function OrphanageMap() {
 
             <div className="input-block">
               <label htmlFor="about">Sobre <span>Máximo de 300 caracteres</span></label>
-              <textarea id="name" maxLength={300} />
+              <textarea id="name" maxLength={300} value={about} onChange={event => setAbout(event.target.value)} />
             </div>
 
             <div className="input-block">
