@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 
@@ -19,6 +19,7 @@ export default function OrphanageMap() {
   const [about, setAbout] = useState('');
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
+  const [open_on_weekends, setOpenOnWeekend] = useState(true)
 
 
   function handleMapClick(event: LeafletMouseEvent) {
@@ -29,12 +30,20 @@ export default function OrphanageMap() {
       longitude: lng,
     });
   }
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+
+  }
+
+
   return (
     <div id="page-create-orphanage">
       <Sidebar />
 
       <main>
-        <form className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className="create-orphanage-form">
           <fieldset>
             <legend>Dados</legend>
 
@@ -93,8 +102,8 @@ export default function OrphanageMap() {
               <label htmlFor="open_on_weekends">Atende fim de semana</label>
 
               <div className="button-select">
-                <button type="button" className="active">Sim</button>
-                <button type="button">Não</button>
+                <button type="button" className={open_on_weekends ? 'active' : ''} onClick={() => setOpenOnWeekend(true)} >Sim</button>
+                <button type="button" className={!open_on_weekends ? 'active' : ''} onClick={() => setOpenOnWeekend(false)} >Não</button>
               </div>
             </div>
           </fieldset>
