@@ -63,15 +63,15 @@
 
     width: 80px;
     height: 80px;
-    background: #F5F5F5;
+    background: #EBCDF4;
     border-radius: 30px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 1.0s;
+    transition: background-color 0.3s;
 }
 
 .content-wrapper .enter-app:hover {
-background-color: #FFD666;
+background-color: #F5F5F5;
 }

@@ -6,7 +6,7 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import mapIcon from '../utils/mapIcon';
-import mapMarkerImg from '../images/map-marker.svg';
+import mapMarkerImg from '../images/map-marker1.svg';
 
 import '../styles/pages/orphanages-map.css';
 import api from '../services/api';

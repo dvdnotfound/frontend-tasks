@@ -8,7 +8,7 @@
 
 #page-map aside {
     width: 440px;
-    background: linear-gradient(329.54deg,  #c78800 0%,#b039d4 100%);
+    background: linear-gradient(329.54deg,  #C368DE   0%,#E57010 100%);
     padding: 80px;
 
     display: flex;
@@ -52,18 +52,18 @@
 
     width: 64px;
     height: 64px;
-    background: #b039d4;
+    background: #FF7B47;
     border-radius: 20px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    transition: background-color 1.0s;
+    transition: background-color 0.2s;
 }
 
 #page-map .create-orphanage:hover {
-    background: #b039d4;
+    background: #FF6D33;
 }
 
 #page-map .map-popup .leaflet-popup-content-wrapper {
