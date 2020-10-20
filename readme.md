@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Tasks" src="" height="200px">
+  <img alt="Tasks" src="./src/images/readme/readme-heather.png" height="200px">
 </h1>
 
 <strong>
