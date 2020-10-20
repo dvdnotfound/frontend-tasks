@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/pages/landing.css';
 
-import logoImg from '../images/logo12.svg';
+import logoImg from '../images/logo2.svg';
 
 
 
@@ -15,8 +15,9 @@ function Landing() {
       <div className="content-wrapper">
         <img src={logoImg} alt="Happy"/>
         <main>
-        <h1>Leve felicidade para o mundo</h1>
-        <p>Visite orfanatos e mude o dia de muitas crianças.</p>
+        <h1>Seja presente onde necessita-se de gente</h1>
+        <p>“Pequenas pessoas, em pequenos lugares, fazendo pequenas coisas, mudam o mundo”</p>
+        <p id="voluntario">Seja voluntário!</p>
       </main>
 
       <div className="location">
