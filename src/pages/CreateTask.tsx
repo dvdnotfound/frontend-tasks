@@ -7,13 +7,13 @@ import { FiPlus } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 import mapIcon from '../utils/mapIcon';
 
-import '../styles/pages/create-orphanage.css';
+import '../styles/pages/create-task.css';
 import api from "../services/api";
 import { useHistory } from "react-router-dom";
 
 
 
-export default function OrphanageMap() {
+export default function TaskMap() {
 
   const history = useHistory();
 
@@ -55,7 +55,7 @@ export default function OrphanageMap() {
       data.append('images', image);
     })
 
-    await api.post('orphanages', data);
+    await api.post('tasks', data);
 
     alert('Cadastro realizado com sucesso');
 
@@ -80,11 +80,11 @@ export default function OrphanageMap() {
 
 
   return (
-    <div id="page-create-orphanage">
+    <div id="page-create-task">
       <Sidebar />
 
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className="create-task-form">
           <fieldset>
             <legend>Dados do Solicitante</legend>
 

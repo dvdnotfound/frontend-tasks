@@ -7,10 +7,10 @@ import { useParams } from 'react-router-dom';
 import Sidebar from "../components/Sidebar";
 import mapIcon from '../utils/mapIcon';
 
-import '../styles/pages/orphanage.css';
+import '../styles/pages/task.css';
 import api from "../services/api";
 
-interface Orphanage {
+interface Task {
   latitude: number;
   longitude: number;
   name: string;
@@ -24,35 +24,35 @@ interface Orphanage {
   }>;
 }
 
-interface OrphanageParams {
+interface TaskParams {
   id: string;
 }
 
 
-export default function Orphanage() {
-  const params = useParams<OrphanageParams>();
-  const [orphanage, setOrphanage] = useState<Orphanage>();
+export default function Task() {
+  const params = useParams<TaskParams>();
+  const [task, setTask] = useState<Task>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);  
     useEffect(() => {
-      api.get(`orphanages/${params.id}`).then(response => {
-        setOrphanage(response.data);
+      api.get(`tasks/${params.id}`).then(response => {
+        setTask(response.data);
       });
     }, [params.id]);
 
-    if (!orphanage) {
+    if (!task) {
       return <p>Carregando...</p>
     }
 
   return (
-    <div id="page-orphanage">
+    <div id="page-task">
       <Sidebar />
 
       <main>
-        <div className="orphanage-details">
-          <img src={orphanage.images[activeImageIndex].url} alt={orphanage.name} />
+        <div className="task-details">
+          <img src={task.images[activeImageIndex].url} alt={task.name} />
 
           <div className="images">
-            {orphanage.images.map((image, index) => {
+            {task.images.map((image, index) => {
               return (
                 <button 
                 key={image.id}
@@ -61,20 +61,20 @@ export default function Orphanage() {
                 onClick={() => {
                   setActiveImageIndex(index)
                 }}>
-                  <img src={image.url} alt={orphanage.name} />
+                  <img src={image.url} alt={task.name} />
                 </button>
             
               )
             })}
           </div>
           
-          <div className="orphanage-details-content">
-            <h1>{orphanage.name}</h1>
-            <p>{orphanage.about}</p>
+          <div className="task-details-content">
+            <h1>{task.name}</h1>
+            <p>{task.about}</p>
 
             <div className="map-container">
               <Map 
-                center={[orphanage.latitude,orphanage.longitude]} 
+                center={[task.latitude,task.longitude]} 
                 zoom={16} 
                 style={{ width: '100%', height: 280 }}
                 dragging={false}
@@ -86,26 +86,26 @@ export default function Orphanage() {
                 <TileLayer 
                   url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                 />
-                <Marker interactive={false} icon={mapIcon} position={[orphanage.latitude,orphanage.longitude]} />
+                <Marker interactive={false} icon={mapIcon} position={[task.latitude,task.longitude]} />
               </Map>
 
               <footer>
-                <a target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/dir/?api=1&destination=${orphanage.latitude},${orphanage.longitude}`}> Ver rotas no Google Maps </a>
+                <a target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/dir/?api=1&destination=${task.latitude},${task.longitude}`}> Ver rotas no Google Maps </a>
               </footer>
             </div>
 
             <hr />
 
             <h2>Instruções à visita</h2>
-            <p>{orphanage.instructions}</p>
+            <p>{task.instructions}</p>
 
             <div className="open-details">
               <div className="hour">
                 <FiClock size={32} color="#15B6D6" />
                 Segunda à Sexta <br />
-                {orphanage.opening_hours}
+                {task.opening_hours}
               </div>
-              { orphanage.open_on_weekends ? (
+              { task.open_on_weekends ? (
                 <div className="open-on-weekends">
                 <FiInfo size={32} color="#39CC83" />
                 Atendemos <br />

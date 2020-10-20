@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import mapIcon from '../utils/mapIcon';
 import mapMarkerImg from '../images/task-marker.svg';
 
-import '../styles/pages/orphanages-map.css';
+import '../styles/pages/tasks-map.css';
 import api from '../services/api';
 
 interface Orphanage {
@@ -20,10 +20,10 @@ interface Orphanage {
 
 
 function OrphanagesMap() {
-  const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
+  const [tasks, setOrphanages] = useState<Orphanage[]>([]);
     
     useEffect(() => {
-      api.get('orphanages').then(response => {
+      api.get('tasks').then(response => {
         setOrphanages(response.data);
       });
     }, []);
@@ -51,16 +51,16 @@ function OrphanagesMap() {
         <TileLayer
          url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`} 
         />
-        {orphanages.map(orphanage => {
+        {tasks.map(task => {
           return (
             <Marker 
           icon={mapIcon}
-         position={[orphanage.latitude,orphanage.longitude]}
-         key={orphanage.id}
+         position={[task.latitude,task.longitude]}
+         key={task.id}
         >
           <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
-          {orphanage.name}
-          <Link to={`/orphanages/${orphanage.id}`}>
+          {task.name}
+          <Link to={`/tasks/${task.id}`}>
             <FiArrowRight size={20} color="#FFF"/>
           </Link>
           </Popup>
@@ -70,7 +70,7 @@ function OrphanagesMap() {
 
       </Map>
 
-      <Link to="/orphanages/create" className="create-orphanage">
+      <Link to="/tasks/create" className="create-task">
         <FiPlus size={32} color="#FFF" />
       </Link>
     </div>
