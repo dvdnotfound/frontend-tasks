@@ -86,7 +86,7 @@ export default function OrphanageMap() {
       <main>
         <form onSubmit={handleSubmit} className="create-orphanage-form">
           <fieldset>
-            <legend>Dados</legend>
+            <legend>Dados do Solicitante</legend>
 
             <Map 
               center={[-12.9913412,-38.5165131]} 
@@ -134,7 +134,7 @@ export default function OrphanageMap() {
           </fieldset>
 
           <fieldset>
-            <legend>Visitação</legend>
+            <legend>Funções</legend>
 
             <div className="input-block">
               <label htmlFor="instructions">Instruções</label>
@@ -142,7 +142,7 @@ export default function OrphanageMap() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="opening_hours">Horário de funcionamento</label>
+              <label htmlFor="opening_hours">Horário Disponível</label>
               <input id="opening_hours" value={opening_hours} onChange={event => setOpeningHours(event.target.value)}/>
             </div>
 

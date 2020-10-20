@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet';
 
-import mapMarkerImg from '../images/map-marker1.svg';
+import mapMarkerImg from '../images/map-marker2.svg';
 
 const mapIcon = Leaflet.icon({
     iconUrl: mapMarkerImg,

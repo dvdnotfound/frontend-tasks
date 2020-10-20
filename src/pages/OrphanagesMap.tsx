@@ -6,7 +6,7 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import mapIcon from '../utils/mapIcon';
-import mapMarkerImg from '../images/map-marker1.svg';
+import mapMarkerImg from '../images/task-marker.svg';
 
 import '../styles/pages/orphanages-map.css';
 import api from '../services/api';
@@ -33,8 +33,8 @@ function OrphanagesMap() {
         <header>
           <img src={mapMarkerImg} alt="Happy" />
 
-          <h2>Escolha um orfanato no mapa</h2>
-          <p>Muitas crianças estão esperando a sua visita :)</p>
+          <h2>Escolha as tasks no mapa</h2>
+          <p>Faça a diferença para quem está perto de você! :)</p>
         </header>
 
         <footer>

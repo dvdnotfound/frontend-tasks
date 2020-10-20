@@ -96,7 +96,7 @@ export default function Orphanage() {
 
             <hr />
 
-            <h2>Instruções para visita</h2>
+            <h2>Instruções à visita</h2>
             <p>{orphanage.instructions}</p>
 
             <div className="open-details">
